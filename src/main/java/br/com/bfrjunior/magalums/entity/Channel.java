@@ -19,6 +19,12 @@ public class Channel {
     }
 
     public Channel() {
+
+    }
+
+    public Channel(Long channelId, String description) {
+        this.channelId = channelId;
+        this.description = description;
     }
 
     public void setChannelId(Long channelId) {
@@ -31,6 +37,27 @@ public class Channel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public enum Values {
+        EMAIL(1L, "email"),
+        SMS(2L, "sms"),
+        PUSH(3L, "push"),
+        WHATSAPP(4L, "whatsapp");
+
+        private Long id;
+
+        private String description;
+
+        private Values(Long id, String description) {
+            this.id = id;
+            this.description = description;
+        }
+
+        public Channel toChannel() {
+            return new Channel(id, description);
+        }
+
     }
 
 }
