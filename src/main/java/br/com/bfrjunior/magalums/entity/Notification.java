@@ -37,6 +37,14 @@ public class Notification {
     public Notification() {
     }
 
+    public Notification(LocalDateTime dateTime, String destionation, String message, Channel channel, Status status) {
+        this.dateTime = dateTime;
+        this.destionation = destionation;
+        this.message = message;
+        this.channel = channel;
+        this.status = status;
+    }
+
     public long getNotificationId() {
         return notificationId;
     }
